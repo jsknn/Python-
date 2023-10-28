@@ -69,10 +69,5 @@ def lcmOfNumbers(numbers:list):
             return f"The LCM of numbers is {numbers[-1]}"
         else:
             return f"The LCM of numbers is {numbers[-1]*numbers[0]}"
-
-
-    
-print(lcmOfNumbers([8,9]))
-
         
     
