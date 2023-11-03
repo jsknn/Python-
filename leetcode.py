@@ -54,9 +54,44 @@ class Solution:
                 return x
         return -1
 """
-
-def partitionString(self, s: str) -> int:
-        for i in s:
-            x=s.rsplit(i)
-        return x
-print(partitionString("ghhjhkkl"))
+    def partitionString(s: str) -> int:
+        """
+        Given a string s, partition the string into one or more substrings such that the characters in each substring are unique. That is, no letter appears in a single substring more than once.
+    
+    Return the minimum number of substrings in such a partition.
+    
+    Note that each character should belong to exactly one substring in a partition.
+    
+     
+    
+    Example 1:
+    
+    Input: s = "abacaba"
+    Output: 4
+    Explanation:
+    Two possible partitions are ("a","ba","cab","a") and ("ab","a","ca","ba").
+    It can be shown that 4 is the minimum number of substrings needed.
+    Example 2:
+    
+    Input: s = "ssssss"
+    Output: 6
+    Explanation:
+    The only valid partition is ("s","s","s","s","s","s").
+     
+    
+    Constraints:
+    
+    1 <= s.length <= 105
+    s consists of only English lowercase letters.
+        """
+        empty_set = set()
+        ans = 1
+        for character in s:
+            if character in empty_set:
+                #incrementing 1 if charcter is present
+                ans += 1
+                # again making the set empty
+                empty_set = set()
+            #adding the charcter to the set for comparision with next character    
+            empty_set.add(character)
+        return ans
